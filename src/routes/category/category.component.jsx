@@ -41,19 +41,19 @@ const SET_CATEGORY = gql`
 const Category = () => {
 	const { category } = useParams();
 
-	// const { loading, error, data } = useQuery(GET_CATEGORY, {
-	// 	variables: {
-	// 		title: category,
-	// 	},
-	// });
+	const { loading, error, data } = useQuery(GET_CATEGORY, {
+		variables: {
+			title: category,
+		},
+	});
 
 	console.log("data", data);
 
-	//This is a mutating function where you get the addCategory back from useMutation(SET_CATEGORY)
-	const [addCategory, { loading, error, data }] = useMutation(SET_CATEGORY); 
+	// //This is a mutating function where you get the addCategory back from useMutation(SET_CATEGORY)
+	// const [addCategory, { loading, error, data }] = useMutation(SET_CATEGORY); 
 
-	//this is the mutation from above
-	addCategory({ variables: { category: categoryObject } }); 
+	// //this is the mutation from above
+	// addCategory({ variables: { category: categoryObject } }); 
 
 	//Notice that if you go back to hats route for example, and reload, it won't make another call to graphql
 	//You can see this in the networks tab (example in oneNote)
